@@ -1,0 +1,32 @@
+\subsection{Magnetic interactions (Main ref LM)}
+We consider an $N$-electron atom with nuclear charge $Z$. The electric field at the position of electron $i$ is
+\eqa{ielectronEfield}{
+  \bm{E}_i = Z\dfrac{\bm{r}_i}{r_i^3}-\sum_{j}^{j\neq i} \dfrac{\bm{r}_{ij}}{r_{ij}^3},
+}
+and we can see how it is due to the atomic nucleus and the other electrons. The electron $i$ moves in this field, and in its rest frame it experiences a magnetic field that interactis with its spin. We need a relativistic treatment of this situation, but with such a treatment we can reach an interaction potential that describes \emph{spin-(own-)orbit interaction}. That is interaction of spin and orbital motion of the same electron. A relativistic treatment based on the Dirac equation leads to a \emph{spin-orbit} potential
+\eqa{sponorb1}{
+  V_{\text{so}} = \dfrac{\alpha^2}{2}\sum_i \left( \bm{E}_i \times \bm{p}_i\right) \bm{\cdot} \bm{s}_i\\
+  = \dfrac{\alpha^2}{2} \sum_i \left[ \dfrac{Z}{r_i^3} \bm{r}_i \times \bm{p}_i -
+    \sum_{j}^{j\neq i} \dfrac{\bm{r}_{ij}}{r_{ij}^3} \times \bm{p}_i \right] \bm{\cdot} \bm{s}_i,
+  }
+with $\alpha$ being the fine structure constant. Apparently the first term can be written
+as \eqa{firstterm}{
+  \dfrac{\alpha^2}{2}\sum_i \dfrac{Z}{r_i^3} \bm{l}_i \bm{\cdot} \bm{s}_i,
+}
+meaning that $ \bm{r}_i \times \bm{p}_i = \bm{l}_i$, which should be considered trivial by the (at least classical) definition of angular momentum? Anyhow, this term represents the interaction of the $i$ electron's spin with the magnetic field caused by it's orbital motion in the nuclear Coulomb field. The second term in Eq. \eqref{sponorb1} is the interaction with the spin due to the electrons orbit in the field due the \emph{other} electrons (ie electrons $j \neq i$).\\
+\indent The potential $V_{\text{so}}$ above describes \emph{spin-(own-)orbit interaction}, but there is also an interaction between the spin motion of an electron and the orbital motion of the other electrons. This interaction is called \emph{spin-other-orbit interaction} (SOO). If we say that the electric current due to the motion of electron $i$ is given by
+\eqa{ielcurr}{
+  \bm{j}_i(\bm{r}) = -e\bm{v}_i \delta(\bm{r}-\bm{r_i}),
+  }
+the SOO interaction be derived in a semi-classical way using the Biot-Savart law (see LM page 104). We get a magnetic field
+\eqa{magbij1}{
+  \bm{B}_{ij} = -\alpha^2 \dfrac{\bm{r}_{ij}}{r_{ij}^3} \times \bm{p}_i}
+which interacts with the spin of electron $j$. Summing over $i$ and $j$ we get the interaction
+\eqa{vsoo1}{
+  V_{\text{soo}} = \alpha^2 \sum_{ij}^{i \neq j} \left(\dfrac{\bm{r}_{ij}}{r_{ij}^3} \times \bm{p}_i \right) \cdot \bm{s}_j.
+  }
+Finally we can add $V_{\text{so}}$ and $V_{\text{soo}}$ to obtain a ``generalised spin-orbit interaction'':
+\eqa{genso1}{
+  V_{\text{so}}+V_{\text{soo}} = \dfrac{\alpha^2}{2}\sum_i \dfrac{Z}{r_i^3} \bm{l}_i \bm{\cdot} \bm{s}_i
+  -\dfrac{\alpha^2}{2}\sum_{ij}^{i \neq j} \left(\dfrac{\bm{r}_{ij}}{r_{ij}^3} \times \bm{p}_i \right) \cdot \left(\bm{s}_i + 2\bm{s}_j\right).
+  }

@@ -1,0 +1,90 @@
+\subsection{The Hartree-Fock equations}
+\newcommand{\hHF}{h_{\text{HF}}}
+\newcommand{\uHF}{u_{\text{HF}}}
+\newcommand{\occs}{\text{occ}}
+The variational principle tells us that we can find the ``best'' approximation to the ground state of some system, with Hamiltonian $H$, by minimising the expectation value of the
+energy,
+\eqa{varprinc1}{
+  \braket{E} = \braket{0|H|0}.
+  }
+If we look to find the ground state Slater determinant $\ket{\alpha}$ of an atomic system we look at the energy expectation value (ignoring magnetic effects)
+\eqa{nrgexp1}{
+  \braket{E} = \braket{\alpha|\sum_{i=1}^N\left(-\dfrac{1}{2}\nabla_i^2 -\dfrac{Z}{r_i}\right)+\sum_{i<j}^N \dfrac{1}{r_{ij}}|\alpha},
+  }
+with the condition that this expectation value is \emph{stationary} with respect to small changes in the orbitals of $\ket{\alpha} = \ket{\slater{abcd\dots n}}$. We will use this condition to derive the Hartree-Fock (HF) equations.\\
+\indent The small change in the orbital $\ket{a}$ can be expressed by
+\eqa{change1}{
+  \ket{a} \rightarrow \ket{a}+\eta\ket{r},
+}
+where $\eta$ is a small real number. Earlier we said that a Slater determinant in which orbital $a$ is replaced by excitation $r$ is labeled $\ket{\alpha_a^r}$, and so this small change in the orbital can be written a small change in the Slater determinant,
+\eqa{slaterchange1}{
+  \ket{\alpha} \rightarrow \ket{\alpha}+\eta\ket{\alpha_a^r}.
+  }
+Thus the corresponding energy expectation value after the small change is
+\eqa{energychange1}{
+  \left(\bra{\alpha}+\eta\bra{\alpha_a^r}\right)H\left(\ket{\alpha}+\eta\ket{\alpha_a^r}\right) = \braket{E} + \eta\left(\braket{\alpha_a^r|H|\alpha}+\braket{\alpha|H|\alpha_a^r}\right),
+}
+where we the terms quadratic in $\eta$, since $\eta$ is taken to be small ``enough''. We now note that $H$ is Hermitian so that the two ``change''-terms are equal, thus the RHS in equation \eqref{energychange1} becomes
+\eqa{energychange2}{
+  \braket{E} + \eta\left(\braket{\alpha_a^r|H|\alpha}+\braket{\alpha|H|\alpha_a^r}\right) = \braket{E} + 2\eta\braket{\alpha_a^r|H|\alpha}.
+}
+So the condition that the energy expectation value is stationary (ie doesn't change) due to a small change in orbitals, amounts to saying that
+\eqa{brillouincond}{
+  \braket{\alpha_a^r|H|\alpha} = 0.
+  }
+This is called \emph{Brillouin's theorem} (1933,1934), and means that there are no matrix elements of $H$ between $\ket{\alpha}$ and states with \emph{single substitution}. We will see that it implies
+that there is no first-order mixing of such states (whatever that might mean).\\
+\indent We can write this condition in a more direct way, using the expressions for single- and two-particle matrix elements of $N$-electron systems from the previous section. Writing out the atomic Hamiltonian explicitly the condition becomes
+\eqa{hamiltbrillcond}{
+  \braket{\alpha_a^r|\sum_{i=1}^N\left(-\dfrac{1}{2}\nabla_i^2 -\dfrac{Z}{r_i}\right)|\alpha}+\braket{\alpha_a^r|\sum_{i<j}^N \dfrac{1}{r_{ij}}|\alpha} = 0,
+  }
+where the first term is made up of sums of one-particle operators, and the second term is a sum of two-particle operators. Using the expressions for matrix elements of such operators in Equation \eqref{FGDiff2_1} we get that the condition can be written
+\eqa{operatorbrillcond1}{
+  \braket{r|-\dfrac{1}{2}\nabla_i^2 -\dfrac{Z}{r_i}|a}+
+  \left[\sum_{b}^{\text{occ}}\left(\braket{rb|\dfrac{1}{r_{ij}}|ab}-\braket{br|\dfrac{1}{r_{ij}}|ab}\right)\right] = 0.
+}
+We should note that the label $r$ for the excited orbital is not related to $r_i$ or $r_{ij}$. LM drops the index on $r_i$ and sets $r_{ij}$ to $r_{12}$ from this point onwards, but it's not clear to me yet why this can be done? Maybe we are putting the $i$-dependence into $\hHF$,$\uHF$ (see below)? No, it rather is that electron $i$ is the electron of orbital $\ket{a}$, and summing over occupied states $b$ we are summing over electrons $j$?\\
+\indent We further want to simplify things by introducing a Hartree-Fock operator ($\hHF$) and Hartree-Fock potential ($\uHF$) by defining
+\eqa{hfpotsoperators1}{
+  \hHF &= -\dfrac{1}{2}\nabla^2 -\dfrac{Z}{r}+\uHF,\\
+  \braket{i|\uHF|j} &= \sum_b^{\occs}\left(\braket{ib|\dfrac{1}{r_{12}}|jb}-\braket{bi|\dfrac{1}{r_{12}}|jb}\right).
+  }
+Then we can write the Brillouin condition as
+\eqa{hfbrill}{
+  \braket{r|\hHF|a} = 0.
+  }
+We can show (I want to do this later) that $\hHF$ is Hermitian and unitary, and thus we can find a basis (orbitals) $\{\ket{a'}\}$ such that $\hHF$ is diagonal, and
+\eqa{hfeqs1}{
+  \hHF\ket{a'} = \varepsilon_a'\ket{a'}.
+  }
+This eigenvalue equation is called in LM ``the normal form of the Hartree-Fock equation''. Dropping the primes for convenience (we remember that we are dealing with the basis in which $\hHF$ is diagonal) we can write explicitly
+\eqa{hfeqsexpl1}{
+  \left(-\dfrac{1}{2}\nabla^2-\dfrac{Z}{r}+\uHF\right)\ket{a} = \varepsilon_a \ket{a}.
+  }
+This equation is nice since each term can be given a simple physical interpretation. The first term is the kinetic energy of the electron, and the second term represents the attraction due to the atomic nucleus. The third term, the potential $\uHF$, represents the average effect of the Coulomb interaction of the electron represented by $\ket{a}$ with the rest of the atomic electrons, \emph{including the exchange interaction}.\\
+\indent Next up is to identify the physical meaning of the eigenvalue $\varepsilon_a$ in the normal form Hartree-Fock Equation \eqref{hfeqsexpl1}.
+
+\subsection{Koopmans' Theorem}
+The total energy of an atomic state represented by a Slater determinant $\ket{\alpha}$ is represented by the expectation value
+\eqa{totalexp}{
+  \braket{E_{\text{atom}}} = \braket{\alpha|H|\alpha}.}
+We know the explicit form of the Hamiltonian, a sum of one- and two-particle operators, so we can play the same game as we did when simplifying $\braket{\alpha_a^r|H|\alpha}$, but with diagonal elements. From equations \eqref{Fdiagelemnot} and \eqref{Gdiagelems2} we get that
+\eqa{energyexpvalatom1}{
+  \braket{E_{\text{atom}}} = \braket{\alpha|\sum_{i=1}^N\left(-\dfrac{1}{2}\nabla_i^2 -\dfrac{Z}{r_i}\right)+\sum_{i<j}^N \dfrac{1}{r_{ij}}|\alpha}
+  }
+becomes
+\eqa{energyexpvalatom2}{
+  \braket{E_{\text{atom}}} = \sum_{b}^{\occs}\braket{b|\left(-\dfrac{1}{2}\nabla^2-\dfrac{Z}{r}\right)|b}\\
+  +\dfrac{1}{2}\sum_{bc}^{\occs}\left(\braket{bc|r_{12}^{-1}|bc}-\braket{cb|r_{12}^{-1}|bc}\right).
+  }
+Consider now the same energy expectation value $\braket{E_{\text{ion}}}$ for the same atom but with orbital $\ket{a}$ removed; an atomic ion. We assume that this removal doesn't affect the other orbitals in any way. The difference between the expectation values then is exactly the terms regarding orbital $\ket{a}$ in Equation \eqref{energyexpvalatom2},
+\eqa{expvaldiff1}{
+  \braket{E_{\text{atom}}}-\braket{E_{\text{ion}}} = \braket{a|\left(-\dfrac{1}{2}\nabla^2-\dfrac{Z}{r}\right)|a}+\sum_b^\occs \left(\braket{ab|r_{12}^{-1}|ab}-\braket{ba|r_{12}^{-1}|ab}\right).
+  }
+The factor $\frac{1}{2}$ disappears from the second term since we have a contribution from $a$ in both the sum over $b$ and over $c$ in Equation \eqref{energyexpvalatom2}, and $\braket{ab|g|ab} = \braket{ba|g|ba}$ and $\braket{ba|g|ab} = \braket{ab|g|ba}$. Is this correct?\\
+\indent But now we need to recall how we defined the HF operator $\hHF$, Equation \eqref{hfpotsoperators1}! We now see that the RHS of Equation \eqref{expvaldiff} is in fact $\braket{a|\hHF|a}$. And $\hHF\ket{a} = \varepsilon_a\ket{a}$ (recall that we can express orbital $a$ in a basis such that $\hHF$ is diagonal). So the difference in energy between atom and ion is
+\eqa{expvaldiff2}{
+  \braket{E_{\text{atom}}}-\braket{E_{\text{ion}}} = \braket{a|\hHF|a} = \braket{a|\varepsilon_a|a} = \varepsilon_a\braket{a|a} = \varepsilon_a.
+}
+What we have found here is that the eigenvalue of the Hartree-Fock (HF) operator is the negative work required to remove one electron from the atomic system. Another way to phrase this is to say that the eigenvalue of $\hHF$ is the negative of the \emph{binding energy}. This result is called Koopman's Theorem (Koopmans 1933).\\
+\indent The important assumption we used here with the removal of one electron not affecting the other orbitals is not physically accurate. The system should ``readjust'' or ``relax'' to the removal of an electron. The theorem is only valid if we can neglect the effect of this ``relaxation''. 

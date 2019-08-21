@@ -1,0 +1,42 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{import}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[toc,page]{appendix}
+\usepackage{float}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{braket}
+
+\newtheorem{mydef}{Def.}
+
+\newcommand{\eq}[2]{\begin{equation} #2 \label{#1} \end{equation}}
+\newcommand{\eqd}[2]{\begin{dmath} #2 \label{#1} \end{dmath}}
+\newcommand{\eqa}[2]{\begin{equation}\begin{aligned} #2 \label{#1} \end{aligned}\end{equation}}
+
+\renewcommand{\v}[1]{\mathbf{#1}}
+
+\newcommand{\bm}[1]{\mathbf{#1}}
+
+%\newcommand{\ssection}[1]{%
+%  \section[#1]{\centering\normalfont\scshape #1}}
+%\newcommand{\ssubsection}[1]{%
+%  \subsection[#1]{\raggedright\normalfont\itshape #1}}
+
+\newcommand{\vx}{\v{x}}
+\newcommand{\ve}{\v{e}}
+\newcommand{\vw}{\v{w}}
+
+\begin{document}
+Last updated: \today
+\import{./}{qm_math1.tex}
+% atomic physics speziale
+\import{./}{atom_phys.tex}
+\import{./}{spinorbit.tex}
+\import{./}{slater.tex}
+\end{document}
+
+%--------------------------------------------------------------------

@@ -1,0 +1,87 @@
+\subsection{Independent particle model, slater determinants}
+\newcommand{\slater}[1]{\{#1\}}
+\emph{Main ref: Lindgren \& Morrison chap 5.}\\
+The $N$-electrons atomic Hamiltonian, with nuclear charge $Z$, can be written (in atomic units)
+\eqa{atomhamilt1}{
+  H = -\dfrac{1}{2}\sum_{i=1}^N \nabla_i^2 - \sum_{i=1}^N \dfrac{Z}{r_i} + \sum_{i < j}^N \dfrac{1}{r_{ij}} + V_{\text{mag}}.
+}
+Even if we have no magnetic potential ($V_{\text{mag} = 0}$, ie no magnetic interactions) this Hamiltonian is complicated for more than say two electrons.
+We introduce a further approximation and say that the electrons moves independently of the other electrons in an \emph{average} field caused by the atomic nucleus and the electrons.
+This approximation is what we call the \emph{independent-particle model}. We express this mathematically by writing the Hamiltonian as a sum of two parts
+\eqa{partham1}{
+  H = H_0 + V_{\text{es}},
+  }
+and we ignore magnetic interactions for the moment. The first term
+\eqa{partham1_term1}{
+H_0 = \sum_{i=1}^N h_0(i)
+  }
+is a sum of one-electron operators
+\eqa{oneelecop1}{
+  h_0(i) = -\dfrac{1}{2}\nabla_i^2 - \dfrac{Z}{r_i} + u(\bm{r}_i),
+}
+and the last term is
+\eqa{potentialterm1}{
+  V_{\text{es}} = -\sum_i u_i(\bm{r}_i) + \sum_{i > j}^N \dfrac{1}{r_{ij}}.\text{    SHOULD IT BE $i < j$ ???}
+  }
+The first term $H_0$ is an approximate Hamiltonian which is supposed to describe the average interaction, and $V_{\text{es}}$ is a departure from this approximate single-particle description and will be treated as a perturbation. This means that $V_{\text{es}}$ has to be reasonably small (for perturbation theory to apply), and for this to be the case the average potential $u(\bm{r}_i)$ should contain most of the Coulomb repulsion between the electrons.\\
+\indent We describe the system of $N$ electrons in the average potential by a product wave function
+\eqa{prodwf1}{
+  \Psi = \phi_a(1) \phi_b(2) \dots \phi_n(N),
+}
+and according to LM this is also the ``simplest'' such wave function. The letters $a,b,\dots$ shall represent the set of quantum numbers necessary to specify a single-electron state, and the numbers $1,2,\dots$ stand for the space and spin coordinates for electrons numbered $1,2,\dots$, so that $\phi_a(1) = \psi_a(x_1)\chi_1(1)$ represents electron $1$ in state $a$, at position $x_1$ and with spin $\chi_1$ (``up'' or ``down''). So if a single electron wavefunction satisfy
+\eqa{singleh01}{
+  h_0(1) \phi_a(1) = \left[-\dfrac{1}{2}\nabla_1^2 - \dfrac{Z}{r_1} + u(\bm{r}_1)\right]\phi_a(1) = \varepsilon_a \phi_a(1),
+}
+then the product wavefunction $\Psi$ is an eigenfunction of the approximate Hamiltonian
+\eqa{approxeigf1}{
+  H_0 \Psi = \sum_{i=1}^N \left[-\dfrac{1}{2}\nabla_i^2 - \dfrac{Z}{r_i} + u(\bm{r}_i)\right]\Psi = E_0 \Psi, 
+}
+where $E_0 = \sum_{i=1}^N \varepsilon_i$. 
+\subsubsection{Slater determinants and antisymmetrisation}
+But every product state $\tilde{\Psi}$ consisting of permutations of the single electron states in $\Psi$ (Eq. \eqref{prodwf1}) is also an eigenstate to $H_0$ \emph{with the same eigenvalue} $E_0$! From the Pauli exclusion principle a many-electron system must be \emph{antisymmetric} with respect to interchange of any two electrons (or fermions in general). To form such an antisymmetric wave function we introduce the \emph{Slater determinant}
+\eqa{slater1}{
+  \Phi = \dfrac{1}{\sqrt{N!}}
+  \begin{vmatrix}
+    \phi_a(1)\phi_a(2)\dots\phi_a(N)\\
+    \phi_b(1)\phi_b(2)\dots\phi_b(N)\\
+    \vdots \\
+    \phi_n(1)\phi_n(2)\dots\phi_n(N)
+    \end{vmatrix}.
+  }
+Evaluating the determinant we get a sum of product states and each term in the sum is an eigenfunction of $H_0$, with eigenvalue $E_0$, so $\Phi$ must also have this property. Any interchange of two electrons amounts to an interchange of two columns in the Slater determinant, and this leads to an appropriate antisymmetric sign change by the properties of determinants. The Slater determinant also enforces the exclusion principle, since if any two single-electron states are the same, there will be two identical rows in the determinant and it will vanish (by determinant properties again). The prefactor $1/\sqrt{N!}$ ensures normalisation (we have $N!$ permutations).\\
+\indent To construct a Slater determinant we need to know which single-particle states are occupied, and decide on how to order them in the determinant. In Dirac notation we write
+\eqa{diracPhi1}{
+  \ket{\Phi} = \ket{\left\{ a b c \dots n\right\}},
+  }
+letting the curly brackets stand for the Slater determinant antisymmetrisation, so that
+\eqa{xchange1}{
+  \ket{\{abc\dots n\}} = -\ket{\{bac\dots n\}}
+}
+and so on.
+\subsection{Matrix elements between Slater determinants}
+We are interested in the atomic Hamiltonian, and it contains one particle operators of the typ $Z/r_i$ and two particle operators of the kind $1/r_{ij}$. In particular we will work with sums of such operators, and we will call sums of general one particle operators $f(i)$ for $F = \sum_i f(i)$ and sums of general two particle operators $g(i,j)$ for $G = \sum_{i < j} g(i,j)$. Note how the sum includes each \emph{pair} of electrons only once. To work out some examples we will restrict ourselves to the two particle case (two electrons), so that
+\eqa{fgops1}{
+  F &= f(1) + f(2),\\
+  G &= g(1,2). 
+  }
+The examples will be fully worked out on paper. If we do this we will find that the diagonal matrix element for $F$ between $\ket{\{ab\}}$ is
+\eqa{f_mel1}{
+  \braket{\{ab\}|F|\{ab\}} = \braket{a|f|a}+\braket{b|f|b},
+}
+which is what we would have gotten if we had looked at ordinary product functions $\phi_a(1)\phi_b(2)$ rather than the antisymmetric determinant state $\ket{\{ab\}}$.\\
+\indent A nondiagonal element between determinantal states differing by a single state is shown to be
+\eqa{f_mel2}{
+  \braket{\slater{ab}|F|\slater{ac}} = \braket{b|f|c},
+  }
+and with states differing by two we get
+\eqa{f_mel3}{
+  \braket{\slater{ab}|F|\slater{cd}} = 0.
+  }
+The diagonal matrix element for the two particle operator $G = g(1,2)$ is shown to be
+\eqa{g_mel1}{
+  \braket{\slater{ab}|G|\slater{ab}} = \braket{ab|g|ab}-\braket{ba|g|ab}.
+}
+The first matrix element of $g$ in the above equation \eqref{g_mel1} is called the \emph{direct} term and the second is called the \emph{exchange} term. This last exchange term would \emph{not} occur if we used a non-determinantal product state $\phi_a(1)\phi_b(2)$.
+\input{slater_notation.tex}
+
+

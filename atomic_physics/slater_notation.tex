@@ -1,0 +1,29 @@
+\subsection{Some new notation to generalise}
+We can generalise the previous results for a two-electron system to $N$-electrons, and to aid in doing this we introduce new notation. We let Greek letters label ordered sets of quantum numbers representing Slater determinants. If $\alpha$ represents $a,b,c,\dots,n$ we write the determinantal state as\footnote{LM then claims that we should call \emph{single-particle functions}, that appear in the determinant, for \emph{occupied} orbitals, and the ``remaining set'' for \emph{excited/virtual} orbitals. But what does this mean? Isn't every factor function $\phi_x(i), x \in abc\dots n$ only a single particle function? The answer to this is that it is poor language in LM. The ``remaining set'' refers not to the set $abc,\dots,n$, but to all possible states in the atom (or continuum I guess). Every orbital that is put in a slater determinant is supposed to be a single electron function.}\eqa{alpha111}{
+  \ket{\alpha} = \ket{\slater{abc,\dots,n}}.
+  }
+\indent We proceed and say that $\ket{\alpha_a^r}$ denotes a determinant state in wich an occupied orbital $a$ in $\alpha$ is replaced by an excited orbital $r$. We also have double substition (excitation?) written as $\ket{\alpha_{ab}^{rs}}$ and so on.\\
+\indent Using this new notation we can generalise the results for the two-particle matrix elements from the previous section. For diagonal matrix elements of single and two-particle operators $F,G$ we get
+\eqa{Fdiagelemnot}{
+  \braket{\alpha|F|\alpha} = \sum_{a}^{\text{occ}}\braket{a|f|a},
+}
+ie with a sum ranging over all occupied orbitals, and
+\eqa{Gdiagelems}{
+  \braket{\alpha|G|\alpha} = \sum_{a<b}^{\text{occ}}\left[\braket{ab|g|ab}-\braket{ba|g|ab}\right],
+  }
+where the sum ranges over all pairs of occupied orbitals $a,b$ only \emph{once}. We could also write this as
+\eqa{Gdiagelems2}{
+    \braket{\alpha|G|\alpha} = \dfrac{1}{2}\sum_{a}^{\text{occ}}\sum_{b}^{\text{occ}}\left[\braket{ab|g|ab}-\braket{ba|g|ab}\right],
+  }
+with a factor of half compensating for counting each pair twice.\\
+\indent For non-diagonal elements between states differing by a single orbital we get
+\eqa{FGdiff1_1}{
+  \braket{\alpha_a^r|F|\alpha} &= \braket{r|f|a},\\
+  \braket{\alpha_a^r|G|\alpha} &= \sum_b^{\text{occ}}\left[\braket{rb|g|ab}-\braket{br|g|ab}\right].
+  }
+Note how this (naturally) removes the sum over a compared to the diagonal case. For states differing by two elements we get
+\eqa{FGdiff2_1}{
+  \braket{\alpha_{ab}^{rs}|F|\alpha} &= 0,\\
+  \braket{\alpha_{ab}^{rs}|G|\alpha} &= \braket{rs|g|ab}-\braket{sr|g|ab}.
+  }
+Since $G$ is a two-particle operator and $F$ is a one-particle operator, matrix elements between states differing by more than two vanishes.
