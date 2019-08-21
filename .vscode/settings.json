@@ -1,5 +1,9 @@
 {
     "files.exclude": {
-        "**/*.tex~": true
+        "**/*.tex~": true,
+        "**/*.pdf": true,
+        "**/*.aux": true,
+        "**/*.toc": true,
+        "**/*.log": true
     }
 }

@@ -1,0 +1,25 @@
+\subsection{Commutation relations}
+\newcommand{\vl}{\v{l}}
+\newcommand{\rr}{\v{r}}
+\newcommand{\pp}{\v{p}}
+We consider a point particle (say an electron) whose motion can be described by some coordinate system. For simplicity let's say cartesian coordinates, so we can describe the particle as having position $\v{r} = (x_1,x_2,x_3)$ and linear momentum $\v{p} = (p_1,p_2,p_3)$ at any given time.
+We define orbital angular momentum in quantum mechanics in the same way we do in classical physics. The orbital angular momentum $\v{l}$ about the origin of the chosen coordinate system is given by the cross-product%\footnote{\import{./}{angmom1_footnote1.tex}}
+\eqa{orbital_angmom_def_crossprod}
+{
+    \vl = \rr \times \pp.
+}
+Looking at this definition component-wise we would write
+\eqa{orbital_angmom_component_def}
+{
+    l_i = x_j p_k - x_k p_j,
+}
+where $i,j,k$ are cyclic permutations of $1,2,3$. We will now quickly see the big difference from classical physics, since in quantum mechanics we have the canonical commutation relation (ref maybe?)
+\eqa{canonical_comm_relation}
+{
+    \comm{x_i}{p_j} = \i\hbar\delta_{ij},
+}
+between the position and momentum operators. While $x_j$ and $p_k$ certainly commute for $j \neq k$ we will see how the \emph{different components of $\vl$} do not! Let us calculate the commutator between components $l_i$ and $l_k$:
+\eqa{l_commutation_relations_one}
+{
+    \comm{l_i}{l_k} = l_i l_k - l_k l_i = \qty(x_j p_k - x_k p_j)\qty(x_i p_j - x_j p_i).
+}

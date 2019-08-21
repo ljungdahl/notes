@@ -5,11 +5,14 @@
 \usepackage{amssymb}
 \usepackage[toc,page]{appendix}
 \usepackage{float}
-\usepackage[bitstream-charter]{mathdesign}
+%\usepackage{cmbright} %Computer modern bright font
 \usepackage[T1]{fontenc}
+\usepackage[bitstream-charter]{mathdesign} %Bitstream charter font
+%\usepackage[adobe-utopia]{mathdesign} %adobe utopia font
 \usepackage{graphicx}
 \usepackage{titlesec}
-\usepackage{braket}
+%\usepackage{braket}
+\usepackage{physics}
 
 \newtheorem{mydef}{Def.}
 
@@ -21,6 +24,7 @@
 
 \newcommand{\bm}[1]{\mathbf{#1}}
 
+\renewcommand{\i}{\text{i}}
 %\newcommand{\ssection}[1]{%
 %  \section[#1]{\centering\normalfont\scshape #1}}
 %\newcommand{\ssubsection}[1]{%
@@ -30,22 +34,21 @@
 \newcommand{\ve}{\v{e}}
 \newcommand{\vw}{\v{w}}
 
+
 %Set equation numbering 
 \numberwithin{equation}{section}
 
-
-
 \begin{document}
 
-\author{Anton Ljungdahl, anton.ljungdahl@fysik.su.se}
-\title{Notes on the many-body theory of atoms}
+\author{Anton Ljungdahl, \\
+\small{anton.ljungdahl@fysik.su.se}}
+\title{Notes on atomic physics}
 \date{\today}
 \maketitle
 \tableofcontents
 
-\section{Basic description of many-electron atoms}
-\import{./}{slater.tex}
-\import{./}{hf_eqs.tex}
+\section{Angular momentum}
+\import{./angular_momentum/}{angmom1.tex}
 
 \end{document}
 
