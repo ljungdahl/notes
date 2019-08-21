@@ -1,17 +1,19 @@
-\section{Atomic physics}
+
 \subsection{Basics}
 \emph{Main refs: Shankar, Principles of QM \& Beiser, Concepts of Modern Physics}.\\
 Recall the principal quantum number
 \eqa{principquant1}
     {
       n = k + l + 1.
-      }
+    }
     The $k$-index comes from the series solution to the radial part of the hydrogen Schrödinger equation, and the $l$-index from the actual form of the equation. The indices can take values $k=0,1,2,\dots$ and $l=0,1,2,\dots$, and so the principal quantum number can take values $n=1,2,3,\dots$, and so on. This also imposes restrictions on $l$ for every $n$, since
-    \eqa{lquantnr}{
+    \eqa{lquantnr}
+    {
       l=k-n-1.
     }
     Thus $l = n-1,n-2,\dots,1,0$. This means that quantum states of a certain $n$ are \emph{degenerate}, there are several states for a given $n$, namely those with different $l$. Shankar says that this indicates the Hamiltonian having more symmetries than just rotational invariance [I NEED TO UNDERSTAND THIS!]. The degeneracy, ie the number of states for each $n$, is calculated by
-    \eqa{degenform}{
+    \eqa{degenform}
+    {
       \sum_{l=0}^{n-1} (2l+1) = n^2.
     }
     Proof by induction probably. The $l$ quantum number is called the orbital quantum number and is related to the angular momentum $L$ of the electron. More precisely,

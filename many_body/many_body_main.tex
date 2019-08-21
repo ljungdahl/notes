@@ -30,12 +30,16 @@
 \newcommand{\ve}{\v{e}}
 \newcommand{\vw}{\v{w}}
 
+%Set equation numbering 
+\numberwithin{equation}{section}
+
 \begin{document}
 Last updated: \today
-\import{./}{qm_math1.tex}
+\tableofcontents
+\section{Many-body atomic physics}
 % atomic physics speziale
-\import{./}{atom_phys.tex}
-\import{./}{spinorbit.tex}
+%\import{./}{basics.tex} %Not good at all atm, 190821
+%\import{./}{spinorbit.tex}
 \import{./}{slater.tex}
 \import{./}{hf_eqs.tex}
 \end{document}
