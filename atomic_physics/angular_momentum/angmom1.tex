@@ -2,24 +2,31 @@
 \newcommand{\vl}{\v{l}}
 \newcommand{\rr}{\v{r}}
 \newcommand{\pp}{\v{p}}
-We consider a point particle (say an electron) whose motion can be described by some coordinate system. For simplicity let's say cartesian coordinates, so we can describe the particle as having position $\v{r} = (x_1,x_2,x_3)$ and linear momentum $\v{p} = (p_1,p_2,p_3)$ at any given time.
+We consider a point particle (say an electron) whose motion can be described by some coordinate system. For simplicity let's say cartesian coordinates, so we can describe the particle as having position $\v{r} = (x,y,z)$ and linear momentum $\v{p} = (p_x,p_y,p_z)$ at any given time.
 We define orbital angular momentum in quantum mechanics in the same way we do in classical physics. The orbital angular momentum $\v{l}$ about the origin of the chosen coordinate system is given by the cross-product%\footnote{\import{./}{angmom1_footnote1.tex}}
 \eqa{orbital_angmom_def_crossprod}
 {
     \vl = \rr \times \pp.
 }
-Looking at this definition component-wise we would write
-\eqa{orbital_angmom_component_def}
+In quantum mechanics we consider $\rr$ and $\pp$ as operators (and each of their components is an operator), and the linear momentum operator can be replaced by
+\eqa{linmomentum_op_replacement}
 {
-    l_i = x_j p_k - x_k p_j,
+    \pp \rightarrow -\i\nabla.
 }
-where $i,j,k$ are cyclic permutations of $1,2,3$. We will now quickly see the big difference from classical physics, since in quantum mechanics we have the canonical commutation relation (ref maybe?)
-\eqa{canonical_comm_relation}
+So we write the angular momentum operator by components as
+\eqa{angmom_operator_components}
 {
-    \comm{x_i}{p_j} = \i\hbar\delta_{ij},
+    l_x &= yp_z-zp_y = &-\i\qty(y\dv{z}-z\dv{y}),\\
+    l_y &= zp_x-xp_z = &-\i\qty(z\dv{x}-x\dv{z}),\\
+    l_z &= xp_y-yp_x = &-\i\qty(x\dv{y}-y\dv{x}).
 }
-between the position and momentum operators. While $x_j$ and $p_k$ certainly commute for $j \neq k$ we will see how the \emph{different components of $\vl$} do not! Let us calculate the commutator between components $l_i$ and $l_k$:
-\eqa{l_commutation_relations_one}
+In quantum mechanics we know that the components of $\rr$ and $\pp$ does not commute in general, in fact we have a defining commutation relation of quantum mechanics:
+\eqa{xp_commutator_1}
 {
-    \comm{l_i}{l_k} = l_i l_k - l_k l_i = \qty(x_j p_k - x_k p_j)\qty(x_i p_j - x_j p_i).
+    \commutator{x_i}{p_j} = \i\hbar\delta_{ij},
+}
+and $\commutator{x_i}{x_j} = \commutator{p_i}{p_j} = 0$. In words: The operators $x_i$ and $p_j$ does \emph{not} commute "along the same axis" (but they do along different). One can suspect that this has consequences for the commutation relations of the angular momentum operators $l_x,l_y,l_z$. One such relation would for example be 
+\eqa{angmom_commut_rel_example1}
+{
+    \commutator{l_x}{l_y} = l_x l_y-l_y l_x = \qty(yp_z-zp_y)\qty(zp_x-xp_z) - \qty(zp_x-xp_z)\qty(yp_z-zp_y).
 }
