@@ -16,6 +16,7 @@
 \usepackage{titlesec}
 %\usepackage{braket}
 \usepackage{physics}
+\usepackage{pdfpages}
 
 \newtheorem{mydef}{Def.}
 
@@ -50,8 +51,11 @@
 \maketitle
 \tableofcontents
 \section{Commutation relations}
-\import{./angular_momentum/}{angmom1_v2.tex}
+\import{./}{angmom1_v2.tex}
 
+\appendix
+\section{Pen-and-paper calculations}
+\includepdf[pages=-]{byhand_commutation_relations1.pdf}
 \end{document}
 
 %--------------------------------------------------------------------
