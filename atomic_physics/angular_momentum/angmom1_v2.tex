@@ -1,0 +1,80 @@
+\newcommand{\vl}{\v{l}}
+\newcommand{\rr}{\v{r}}
+\newcommand{\pp}{\v{p}}
+\newcommand{\vs}{\v{s}}
+\newcommand{\vj}{\v{j}}
+We consider a point particle (say an electron) whose motion can be described by some coordinate system. For simplicity let's say cartesian coordinates, so we can describe the particle as having position $\v{r} = (x,y,z)$ and linear momentum $\v{p} = (p_x,p_y,p_z)$ at any given time.
+We define orbital angular momentum in quantum mechanics in the same way we do in classical physics. The orbital angular momentum $\v{l}$ about the origin of the chosen coordinate system is given by the cross-product%\footnote{\import{./}{angmom1_footnote1.tex}}
+\eqa{orbital_angmom_def_crossprod}
+{
+    \vl = \rr \times \pp.
+}
+In quantum mechanics we consider $\rr$ and $\pp$ as operators (and each of their components is an operator), and the linear momentum operator can be replaced by
+\eqa{linmomentum_op_replacement}
+{
+    \pp \rightarrow -\i\hbar\nabla.
+}
+So we write the angular momentum operator by components as
+\eqa{angmom_operator_components}
+{
+    l_x &= yp_z-zp_y = &-\i\hbar\qty(y\dv{z}-z\dv{y}),\\
+    l_y &= zp_x-xp_z = &-\i\hbar\qty(z\dv{x}-x\dv{z}),\\
+    l_z &= xp_y-yp_x = &-\i\hbar\qty(x\dv{y}-y\dv{x}).
+}
+In quantum mechanics we know that the components of $\rr$ and $\pp$ does not commute in general, in fact we have a defining commutation relation of quantum mechanics:
+\eqa{xp_commutator_1}
+{
+    \commutator{x_i}{p_j} = \i\hbar\delta_{ij},
+}
+and $\commutator{x_i}{x_j} = \commutator{p_i}{p_j} = 0$. In words: The operators $x_i$ and $p_j$ does \emph{not} commute "along the same axis" (but they do along different). One can suspect that this has consequences for the commutation relations of the angular momentum operators $l_x,l_y,l_z$. One such relation would for example be 
+\eqa{angmom_commut_rel_example1}
+{
+    \commutator{l_x}{l_y} = l_x l_y-l_y l_x = \qty(yp_z-zp_y)\qty(zp_x-xp_z) - \qty(zp_x-xp_z)\qty(yp_z-zp_y),
+}
+and we could evaluate this by expanding the parentheses and employing the $x,p$ commutation relations and the form of $p$ as a differential operator. But we could also be a bit more systematic and also a bit more illustrative by figuring out commutators between the $l_i$, $x_i$ and $p_i$. Then we use the algebraic properties of the commutator to figure out the commutators between angular momentum operators (following Dirac's treatment).\\
+\indent The algebraic rules follows from the definition (these rules also apply to classical Poisson brackets)
+\eqa{commutator_def}
+{
+    \commutator{u}{v} = uv-vu,
+}
+and are 
+\eqa{commutator_algebraic_rules1}
+{
+    \commutator{u_1+u_2}{v} &= \commutator{u_1}{v}+\commutator{u_2}{v},\\
+    \commutator{u}{v_1+v_2} &= \commutator{u}{v_1}+\commutator{u}{v_2},\\
+    \commutator{u_1 u_2}{v} &= \commutator{u_1}{v}u_2+u_1\commutator{u_2}{v},\\
+    \commutator{u}{v_1 v_2} &= \commutator{u}{v_1}v_2+v_1\commutator{u}{v_2}.
+}
+To proceed we need to perform a bit of algebra, and it's not very useful to do this in a text document. I will append handwritten work to the end of this document. 
+Let us just simply state the results here. We have the commutation relations
+\eqa{angmom_commut_relations1}
+{
+    \commutator{l_x}{l_y} &= \i\hbar l_z,\\
+    \commutator{l_z}{l_x} &= \i\hbar l_y,\\
+    \commutator{l_y}{l_z} &= \i\hbar l_x.
+}
+We can write this compactly by using the Levi-Civita symbol defined by
+\eqa{levicivita_definition}
+{
+    \levciv = \left\{\mqty{
+        &1& \text{ if } (i,j,k) \text{ is an \emph{even} permutation of } (1,2,3), \\
+        &-1& \text{ if } (i,j,k) \text{ is an \emph{odd} permutation of } (1,2,3), \\
+        &0& \text{ if any two or more of the indices are the same.}}\right.
+}
+Then the commutation relations simply becomes
+\eqa{leviciv_angmom_commut_rels}
+{
+    \commutator{l_i}{l_j} = \i\hbar\levciv l_k.
+}
+We have the same relation for orbital angular momentum in classical mechanics, using Poisson brackets: $\qty{l_i,l_j} = \levciv l_k$.\\
+\indent But in quantum mechanics we also have spin angular momentum $\vs$, and spin does not have any classic analogue. We cannot describe spin as a cross product between position and momentum vectors. It is useful to introduce a general angular momentum
+\eqa{general_angular_momentum}
+{
+    \vj = j_x \v{\hat{x}}+j_y \vu{y}+j_z \vu{z},
+}
+and say that quantum angular momentum operators are \emph{defined} by the commutation relations
+\eqa{general_commutation_relations1}
+{
+    \commutator{j_i}{j_j} = \i\hbar \levciv j_k.
+}
+All the properties we need to describe the physics of quantum angular momentum follows from this definition.
