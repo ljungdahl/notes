@@ -18,7 +18,25 @@
 \usepackage{physics}
 \usepackage{pdfpages}
 \usepackage[swedish]{babel}
+\usepackage{titlesec}
+\usepackage{bm}
 \newtheorem{mydef}{Def.}
+
+% SECTION
+\titleformat{\section}[hang]
+{\normalfont\fontseries{b}\selectfont}
+{\thesection.}{.5em}{}
+\titlespacing{\section}
+{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
+
+% SUBSECTION
+\titleformat{\subsection}[hang]
+{\normalfont\fontshape{it}\selectfont}
+{\thesubsection.}{.5em}{}
+\titlespacing{\subsection}
+{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
+
+
 
 \newcommand{\eq}[2]{\begin{equation} #2 \label{#1} \end{equation}}
 \newcommand{\eqd}[2]{\begin{dmath} #2 \label{#1} \end{dmath}}
@@ -26,7 +44,7 @@
 
 \renewcommand{\v}[1]{\mathbf{#1}}
 
-\newcommand{\bm}[1]{\mathbf{#1}}
+%\newcommand{\bm}[1]{\mathbf{#1}}
 
 \renewcommand{\i}{\text{i}}
 %\newcommand{\ssection}[1]{%
@@ -41,6 +59,7 @@
 \newcommand{\vs}{\v{s}}
 \newcommand{\vL}{\v{L}}
 \newcommand{\vS}{\v{S}}
+\newcommand{\vJ}{\v{J}}
 
 \newcommand{\levciv}{\epsilon_{ijk}}
 %Set equation numbering 
@@ -53,15 +72,16 @@
 
 \author{Anton Ljungdahl, \\
 \small{anton.ljungdahl@fysik.su.se}}
-\title{Atomfysik inlämning 1}
+\title{Atomfysik - inlämningsuppgifter 1}
 \date{\today}
 \maketitle
 
-\section{Uppgift 1}
-
-\section{Uppgift 2}
+\section{   Uppgift 1}
+\import{./}{uppg1}
+\section{   Uppgift 2}
 \import{./}{uppg2}
-
+\section{   Uppgift 5}
+\import{./}{uppg5}
 
 \end{document}
 %--------------------------------------------------------------------

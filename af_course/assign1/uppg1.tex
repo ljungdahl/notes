@@ -1,0 +1,35 @@
+\newcommand{\LMll}{L M_L l_1 l_2}
+\newcommand{\LMllx}{L M_L l_2 l_1}
+\newcommand{\SMss}{S M_S s_1 s_2}
+\newcommand{\SMssx}{S M_S s_2 s_1}
+\newcommand{\llmll}{l_1 l_2 m_{l_1} m_{l_2}}
+\newcommand{\llmllx}{l_2 l_1 m_{l_2} m_{l_1}}
+\newcommand{\ssmss}{s_1 s_2 m_{s_1} m_{s_2}}
+\newcommand{\ssmssx}{s_2 s_1 m_{s_2} m_{s_1}}
+Vi betraktar två elektroner med samma $l$ kvanttal, dvs $l_1 = l_2 = l$. Eftersom partiklarna båda är elektroner har de 
+också samma $s$-kvanttal, $s_1 = s_2 = 1/2$. Tillståndet för det totala systemet kan vi skriva som $\ket{L M_L l_1 l_2}\ket{S M_S s_1 s_2}$,
+för att illustrera att vi kopplat $l_1, l_2$ till $L$ och $s_1,s_2$ till $S$. Uttrycker vi det här i basen 
+$\ket{\llmll}\ket{\ssmss}$ får vi 
+\eqa{basbyte1}{
+   \ket{\LMll}\ket{\SMss} = \\
+   \sum_{m_{l_1}m_{l_2}m_{s_1}m_{s_2}} \bra{\llmll} \ket{\LMll} \bra{\ssmss} \ket{\SMss} \ket{\llmll}\ket{\ssmss}.
+}
+Det här tillståndet måste ju vara antisymmetriskt under utbyte av de båda elektronerna. Efter utbytet skulle vi, enligt det givna sambandet för Clebsch-Gordan 
+koefficienter, få koefficienter i summan som ser ut som
+\eqa{exchngcoeffs}{
+    \qty(-1)^{l_1+l_2-L}\qty(-1)^{s_1+s_2-S}\bra{\llmllx}\ket{\LMllx}\bra{\ssmssx}\ket{\SMssx}.
+}
+För att Pauliprincipen skall stämma behöver vi kräva att fasfaktorn framför är $-1$. Detta krav kan vi uttrycka som
+\eqa{paulikrav1}{
+    \qty(-1)^{l_1+l_2-L+s_1+s_2-S} = \qty(-1)^{2k+1} 
+}
+eller
+\eqa{paulikrav3}{
+    l_1+l_2-L+s_1+s_2-S = 2k+1,
+}
+där $k$ är ett heltal. Med $l_1 = l_2 = l$ och $s_1 = s_2 = 1/2$ skriver vi detta som
+\eqa{paulikrav2}{
+    2l+1-L-S = 2k+1 \Leftrightarrow L+S = 2(l-k).
+}
+Eftersom $l$ och $k$ är heltal så är $l-k$ ett heltal eller noll. Det betyder att Pauliprincipen kräver att $L+S$ är noll eller jämnt för 
+två elektroner med samma $l$-kvanttal.
