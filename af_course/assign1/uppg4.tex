@@ -1,0 +1,47 @@
+\subsection{a)}
+För att vi betraktar triplet-övergångar på typen $^3L_J \rightarrow  ^3L'_{J'}$.
+
+\subsection{b)}
+Antar vi att det bara är sluttillståndet som splittras har kan vi säga att varje linje i (a)-figuren
+svarar mot en energi $h\nu_a = E_{J_a}-E_{\text{init}}$. Skillnaden mellan två av de här fotonenergierna är då
+\eqa{fotondiff1}{
+\epsilon_{ab} = h\nu_a-h\nu_b = E_{J_a}-E_{\text{init}}-E_{J_b}+E_{\text{init}} = E_{J_a}-E_{J_b}.
+}
+Vi vill försöka bestämma alla tre kvanttalen $J$, det ger oss direkt $L$ eftersom vi redan vet $S$ (triplet ger $S=1$).
+I fallet då $J_a = J_b-1$ kan vi använda Landés intervallregel $E_{J_a}-E_{J_b} = \beta J_a$. Om vi beräknar $\epsilon_{ij}$
+för skillnaden mellan alla linjer kan vi ta kvoten mellan skillnaderna. I fallet då Landés intervallregel är uppfylld får vi
+något på formen
+\eqa{fotondiffq1}{
+    \dfrac{E_{J_a}-E_{J_b}}{E_{J_b}-E_{J_c}} = \dfrac{J_a}{J_b} = \dfrac{J_a}{J_a-1}.
+}
+Vi testar helt enkelt det här för $\lambda_a = 4585.90$ Å, $\lambda_b = 4581.41$ Å, $\lambda_c = 4578.57$ Å, t. ex med ett
+python script. Vi får skillnaderna
+\eqa{epsilonz1}{
+    \epsilon_{ab} &= -0.00264965 \text{ eV},\\
+    \epsilon_{bc} &= -0.00167863 \text{ eV},\\
+    \epsilon_{ac} &= -0.00432829 \text{ eV}.
+    }
+Kvoterna blir (jag använder $\epsilon_{ab} = -\epsilon_{ba}$)
+\eqa{quotients1}{
+    \epsilon_{ab}/\epsilon_{bc} &\approx 1.58,\\
+    \epsilon_{bc}/\epsilon_{ca} &\approx -0.39,\\
+    \epsilon_{ba}/\epsilon_{ac} &\approx -0.61.
+}
+Vi ser att $\epsilon_{ab}/\epsilon_{bc}$ ungefär är $3/2$, medan de andra kvoterna är negativa. För tre $J$-värden har vi bara en möjlig
+kvot enligt ekvation \eqref{fotondiffq1}, och den måste per definition vara positiv. Så vi kan nu dra slutsatsen att $J_a = 3$, $J_b = 2$ och då $J_c = 1$.
+Eftersom $J = L-S,\dots,L+S$ får vi då (med känt $S=1$) direkt $L=2$. Vi betraktar alltså övergångar från ett initialt tillstånd
+(som vi inte kan urskilja splittring i) till en triplet $^3D_1,^3D_2,^3D_3$.
+
+\subsection{c)}
+Anledningen till att vi bara ser sex övergångar är urvalsreglerna. Om man sätter sig ner och klurar med dem upptäcker vi att 
+om vi skulle ha en övergång mellan termer med samma $L$ skulle vi få åtta möjligheter. Alltså har vi övergångar mellan olika $L$.
+Urvalsreglerna säger oss också att de tre linjer i spektrat som ligger nära varandra alla är övergångar som har samma $J$-kvanttal på initial \emph{eller}
+sluttillståndet. Vi kan alltså använda oss av samma idé som i uppgift b) på dessa tre linjer för att börja någonstans. Nu får vi 
+$\lambda_a = 4456.61$ Å, $\lambda_b = 4455.88$ Å, $\lambda_c = 4454.77$ Å. I det här fallet visar det sig att kvoten som är en vettig Landé intervall-kvot 
+är 
+\eqa{validquotient1}{
+    \dfrac{E_{J_c}-E_{J_b}}{E_{J_b}-E_{J_a}} = \dfrac{J_c}{J_b} = {J_c}{J_c-1} \approx 1.5 \Longrightarrow J_c = 3,
+}
+alltså har vi igen triplett $D$ termer. Frågan nu är om det är i den övre eller undre termen i övergången som vi beräknat kvanttalen för. Det här kan vi lista ut genom att betrakta fotonenergierna (våglängderna i spektrumet). $\lambda_c$ är den kortaste våglängden av de tre, och den svarade mot det högsta $J$-kvanttalet i vår kvot.
+Alltså ökar energin med $J$, vilket måste betyda att vi beräknat $J$ för den \emph{övre} termen, som alltså är en triplett $D$. Nu behöver vi lista ut om vi 
+går till en $P$ eller $F$ term.

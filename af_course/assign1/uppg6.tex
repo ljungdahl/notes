@@ -1,0 +1,42 @@
+\subsection{a)}
+Eftersom vi startar från $J=1$ och går till $J=2$ får vi följande
+tabell över möjliga övergångar:
+\begin{table}[H]
+    \begin{tabular}{c | c c c c c}
+        $ M_{J=1} \backslash M_{J=2}$ & -2 & -1 & 0 & 1 & 2 \\
+        \hline
+        -1  &$\sigma^-$&$\pi$&$\sigma^+$& & \\
+        0   & & $\sigma^-$&$\pi$&$\sigma^+$& \\
+        1   & & & $\sigma^-$&$\pi$&$\sigma^+$ 
+    \end{tabular}
+\end{table}
+I ruta (a) har vi inget magnetfält och alltså ingen Zeemaneffekt ($M_J$ splittring), dvs inga övergångar (vi har $M_J$ degeneration). 
+I ruta (b) ser vi alla nio möjliga övergångar (jämför tabellen) eftersom vi inte har någon polarisering.
+Det är givet att vi observerar vinkelrätt mot magnetfältet, så i (c) får vi maximal observation av $\pi$-övergångar (3 st). 
+Detta eftersom att fotonerna är polariserade längs $z$ (samma riktning som magnetfältet ligger i). I ruta (d) har vi istället planpolariserat ljus
+vinkelrätt mot fältet, och det ger oss bara hälften av de möjliga $\sigma$-övergångarna, vilket vi ser i hur topparna minskar i magnitud jämfört ruta (b).
+
+\subsection{b)}
+För att verifiera att det vi ser verkligen verkar vara Zeemaneffekten kan vi göra följande beräkning. Om vi antar Zeemaneffekten så ändras övergångarnas
+slut- och starttillstånd enligt
+\eqa{zeemanantag}{
+    \Delta E_{\text{init}} &= g_{J_{\text{init}}}\mu_B B_z M_{J_{\text{init}}},\\
+    \Delta E_{\text{final}} &= g_{J_{\text{final}}}mu_B B_z M_{J_{\text{final}}}.\\
+}
+Så om vi tar skillnaden mellan "standard"-övergången (den utan splittring, dvs $M_J = 0$ för både start och slut) och någon av de andra övergångarna får vi
+\eqa{difftransition}{
+    h\nu-h\nu_{\text{standard}} = \qty(g_{J_{\text{final}}}M_{J_{\text{final}}}-g_{J_{\text{init}}}M_{J_{\text{init}}})\mu_B B_z.
+}
+Delar vi bort $\mu_B B_z$ får vi ett enkelt numeriskt samband för hur topparna förhåller sig till "mitten"-toppen sett till våglängd/energi, som vi kan jämföra
+med det faktiska spektrumet. I vårt fall har vi $g_{J_\text{init}} = 2$ och $g_{J_\text{final}} = 3/2$, vilket vi beräknar med uttrycket
+ för Landés $g$-faktor i uppgift 5. Exempel: för $\pi$-topparna (de närmast "mitten") har vi $M_{J_i} = M_{J_f} = \pm 1$, och de ska alltså vara skiftade med 
+ $\pm \qty(3/2-2) = \mp 1/2$. För första $\sigma^+$ toppen (andra till vänster räknat från mitten, kortare våglängd ger högre energi) har vi $M_{J_i} = 1$ och $M_{J_f} = 2$ vilket ger oss
+ ett skifte $(3/2)2-2 = 1$, och så vidare. Räknat från vänster ska vi alltså ha skiften
+ \eqa{zeemanshift}{
+    2,\hspace{2pt}1.5,\hspace{2pt}1,\hspace{2pt}0.5,\hspace{2pt}0,\hspace{2pt}-0.5,\hspace{2pt}-1,\hspace{2pt}-1.5,\hspace{2pt}-2
+ }  enligt Zeemaneffekten. Med en
+ kort kod för att beräkna energier från våglängder tagna med ögonmått från figuren får vi snabbt ("mitten" taget som 5460.75 Å) beräknade skiften
+ \eqa{calcskifte}{
+    2.06,\hspace{2pt}1.56,\hspace{2pt}1.11,\hspace{2pt}0.57,\hspace{2pt}0.0,\hspace{2pt}-0.50,\hspace{2pt}-0.99,\hspace{2pt}-1.49,\hspace{2pt}-2.01
+ }
+ vilket verkar bekräfta Zeemaneffekten väl.
