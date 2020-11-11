@@ -1,0 +1,78 @@
+\section{Machine Learning in terms of statistical theory}
+\newcommand{\dB}{\dd B\mkern3mu}
+\newcommand{\dA}{\dd A\mkern3mu}
+iid - independent identically distributed.
+Usually used when referred to a set of realisations $\lbrace x_i \rbrace$ of some distribution $P(x)$.
+\\
+The powerful thing is that we can use such $x_i$ to get an approximation of integral over $P(x)$ as $1/N \sum f(x_i)$.
+The error goes as $1/sqrt(N)$.
+
+\subsection{What are we trying to do?}
+Learner's input:
+\begin{itemize}
+    \item Domain set $X$, or instance space. Domain point $x \in X$ also called an instance.
+    \item Label space: A set $Y$ is called the label space, and individual points $y \in Y$ are labels.
+    \item Training data: We need somewhere to start. So we have some training set $S = \lbrace (x_i,y_i) \rbrace$ that come from $X \times Y$. We should note that this set is a \emph{realisation} from the unknown distribution $P(X,Y)$.
+\end{itemize}
+
+\noindent Learner's output:
+\begin{itemize}
+    \item What we want from the learner is a \emph{prediction rule} which is a function $h: X\rightarrow Y$. It servers to predict labels for data we haven't seen before.
+    \item Several names, predictor, hypothesis, classifier...
+\end{itemize}
+
+\noindent Let's say that we have obtained a predictor in some way. We need a measure to see how good it is at prediction.
+The nice thing is that if we find out a measure we can also find the method of prediction, a maximisation of the measure,
+which in this case will mean a minimisation of the error.\\
+\indent We define a loss function $L(h(x), y)$ for the predictor $h(x)$. This can for a classification problem for example be the error rate, where
+you just count the number of times the predictor $h(x)$ fails to give the correct result on some set of testing data where
+we know the correct answer. We can define different loss functions. For regression we could use squared loss function
+\eqa{sqrdLoss}{
+L(h(x), y) = (h(x)-y)^2.
+}
+To go further we define the \emph{average} of the loss function, and we call this the \emph{risk} of the predictor $h$.
+The average loss, or risk $R(h)$  is formally
+\eqsa{riskFunct1}{
+R(h) = \int \dd x \dd y \mkern3mu P(x,y) L(h(x),y),
+}
+which is just a standard definition of average (or expectation value).
+Using the product rule we rewrite this as
+\eqsa{riskFunct2}{
+R(h) = \int \dd x \mkern3mu P(x) \dd y \mkern3mu P(y|x) L(h(x),y).
+}
+The optimal predictor is then the function that minimises this risk. But we don't know the true probability distribution,
+so we need to use the approximation "Markov density approx.".\\
+\indent We have an empirical training set consisting of $N$ pairs $(x_i,y_i)$. We get the \emph{Empirical Risk Function}
+\eqa{empRisk1}{
+R(h) \approx R_N(h) = \dfrac{1}{N} \sum_i L(h(x_i), y_i).
+}
+Now we arrive at the core of Machine Learning.\\
+What we are doing is trying to find the predictor $h(x)_{\mathrm{optimal}}$ that minimises the empirical risk function. This procedure is
+called Empirical Risk Minimisation (ERM), formally:
+\eqsa{ERM1}{
+h(x)_{\mathrm{optimal}} = \mathrm{argmin}_{h}\left[ \dfrac{1}{N} \sum_i L(h(x_i), y_i)\right].
+}
+\subsection{Bayes' theorem}
+Product rule for probability
+\eqsa{probs}{
+P(x, y) = P(y)P(x|y) = P(x)P(y|x),
+}
+if $x,y$ independent then $P(x,y) = P(x)P(y)$.\\
+\indent Bayes' Law (or Bayes' theorem) is a direct consequence of the product rule.
+We just divide the product rule by $P(x)$ or $P(y)$, to get (dividing by $P(y) \neq 0$)
+\eqsa{bayesLaw}{
+\dfrac{P(x,y)}{P(y)} = P(x|y) = \dfrac{P(x)P(y|x)}{P(y)}.
+}
+The last equality is the usual statement of the theorem, here with events $A,B$ instead of $x,y$:
+\eqsa{bayesLaw2}{
+P(A|B) = \dfrac{P(A)P(B|A)}{P(B)}.
+}
+To get to the form of the theorem in the lecture slides we need to use the law of total probability
+\eqsa{lawtotprob}{
+P(B) = \int \dA P(A)P(B|A).
+}
+Then we write the Bayes' theorem
+\eqsa{bayesLaw3}{
+P(A|B) = \dfrac{P(A)P(B|A)}{\int \dA P(A)P(B|A)}.
+}
+With a discrete space we replace integrals by sums.

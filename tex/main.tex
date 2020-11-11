@@ -1,0 +1,43 @@
+%! Author = anton
+%! Date = 2020-09-11
+
+% Preamble
+\documentclass[12pt,a4paper, notitlepage]{report}
+
+% Packages
+\usepackage{titlesec, color}
+\usepackage[numbers]{natbib}
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{cancel}
+\usepackage{import}
+\usepackage{braket}
+
+% Settings
+%\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter \hsp}{15pt}{\Huge\bfseries}
+
+\newcommand{\eq}[2]{\begin{equation} #2 \label{#1} \end{equation}}
+\newcommand{\eqd}[2]{\begin{dmath} #2 \label{#1} \end{dmath}}
+\newcommand{\eqa}[2]{\begin{equation}\begin{aligned} #2 \label{#1} \end{aligned}\end{equation}}
+\newcommand{\eqsa}[2]{\begin{equation*}\begin{aligned} #2 \label{#1} \end{aligned}\end{equation*}}
+
+\renewcommand{\vec}[1]{\bm{\mathrm{#1}}}
+
+\newcommand{\rOneTwo}{\dfrac{1}{\mathrm{r}_{12}}}
+\newcommand{\I}{i\mkern1mu}
+\newcommand{\vp}{\vec{p}}
+\newcommand{\vA}{\vec{A}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\vk}{\vec{k}}
+\newcommand{\dd}[1]{\mathrm{d}#1}
+\newcommand{\domega}{\dd{\omega}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\veps}{\vec{\hat{\varepsilon}}}
+
+% Document
+\begin{document}
+    \import{./}{coherence}
+    \import{./}{ml_stat}
+
+\end{document}

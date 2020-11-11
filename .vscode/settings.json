@@ -1,9 +1,0 @@
-{
-    "files.exclude": {
-        "**/*.tex~": true,
-        "**/*.pdf": true,
-        "**/*.aux": true,
-        "**/*.toc": true,
-        "**/*.log": true
-    }
-}
