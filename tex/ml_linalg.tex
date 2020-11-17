@@ -1,0 +1,27 @@
+\section{Notes on ML lecture 3}
+We have three things going into a ML problem.
+A set of training data $S = {(X,Y)}$.
+Predictor function $h(x)$ acting on the feature domain $X$.
+Loss function $L(h(x), y)$ that for every prediction $h(x)$ tries to
+quantify how well $y$ is predicted.
+\\
+\\
+A big point from the no-free-lunch is that if we don't make
+any assumptions about the data we have no reason to prefer any
+predictor over any other predictor. There is no universal learner.
+This means that there is no algorithm to rule them all!
+\\
+\\
+So how do we choose our hypothesis class?\footnote{Hypothesis class is the set of predictor functions that might be useful to us.}
+
+\subsection{Bias-Variance trade-off}
+We want to find a sweetspot so that we have a minimised error in the prediction.
+If we have a complex model, ie too many parameters, we might be limited by our access to training data.
+But if we have to a simple model we have too much model bias, we are not able to describe the data good enough.
+Decompose prediction error:
+\eqsa{bv_prederr}{
+  E_{\mathrm{out}} = \mathrm{bias}^2 + \mathrm{variance} + \mathrm{noise}.
+}
+We can test different models with different complexity and see what gives us the smallest error.
+
+\subsection{Linear regression}
